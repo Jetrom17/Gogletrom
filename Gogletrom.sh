@@ -24,10 +24,10 @@ API_KEY="SEU_TOKEN"
 QUESTION="$1"
 
 # Envia uma requisição POST à API e armazena a resposta na variável.
-response=$(curl -s \  # Usa curl para fazer a requisição silenciosamente.
-  -H "Content-Type: application/json" \  # Define o cabeçalho do tipo de conteúdo.
-  -d "$(printf '{"contents":[{"parts":[{"text":%s}]}]}' "$(printf '%s' "$QUESTION" | jq -Rs .)")" \ # Formata a pergunta para o corpo JSON.
-  -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=$API_KEY") # URL da API com a chave de acesso.
+response=$(curl -s \
+  -H "Content-Type: application/json" \
+  -d "$(printf '{"contents":[{"parts":[{"text":%s}]}]}' "$(printf '%s' "$QUESTION" | jq -Rs .)")" \
+  -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=$API_KEY")
 
 # Extrai o conteúdo da resposta JSON retornado pela API.
 content=$(echo "$response" | jq -r '.candidates[0].content.parts[0].text')
