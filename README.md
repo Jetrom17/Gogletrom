@@ -28,6 +28,9 @@ O `jq` é necessário para manipular e extrair dados de respostas JSON.
 `sudo apt install jq`       # Para sistemas baseados em Debian ou Ubuntu  
 `sudo yum install jq `      # Para sistemas baseados em Red Hat ou CentOS  
 
+> [!NOTE]
+> No Windows, para PowerShell, funciona usando `wsl --install` + `wsl bash Gogletrom.sh`.
+
 ### 3. Chave de API do Google Gemini
 Você precisará de uma chave válida da API Google Gemini  
 - Gere a chave no Google Cloud Console e habilite a API de linguagem correspondente  
